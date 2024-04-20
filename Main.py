@@ -205,7 +205,7 @@ class ObjectDetection:
             circle_radius = 10
             circle_color = (0, 0, 255) 
             circle_thickness = -1  
-            circle_position = (im0.shape[1] - 30, 15) 
+            circle_position = (im0.shape[1] - 30, 70) 
             
             if int(time()) % 2 == 0:  # Blink the circle every second
                 cv2.circle(im0, circle_position, circle_radius, circle_color, circle_thickness)
@@ -213,7 +213,7 @@ class ObjectDetection:
             # "Recording" text
             text = " Recording"
             text_color = (0, 0, 255) 
-            text_position = (im0.shape[1] - 150, 20)  
+            text_position = (im0.shape[1] - 150, 75)  
             cv2.putText(im0, text, text_position, cv2.FONT_HERSHEY_SIMPLEX, 0.6, text_color, 2, cv2.LINE_AA)
             
             node_img = cv2.imread("rsc/Node.png")
@@ -228,7 +228,7 @@ class ObjectDetection:
 
             # Timestamp
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            cv2.putText(im0, timestamp, (10, im0.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(im0, timestamp, (10, im0.shape[0] - 50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2, cv2.LINE_AA)
             self.video_writer.write(im0)
 
         else:
