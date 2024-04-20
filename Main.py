@@ -75,7 +75,7 @@ class ObjectDetection:
                     class_name = self.model.names[class_id]
 
                     if class_name not in self.detected_objects:
-                        log_entry = f"{current_time}-{system_coordinates}-{class_name}"
+                        log_entry = f"{current_time}-\tCoordinates of the Camera Goes here \t-{class_name}"
                         with open("log.txt", "a") as log_file:
                             log_file.write(log_entry + "\n")
                         print(log_entry)
