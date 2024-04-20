@@ -13,7 +13,7 @@ The Forest Protection System (FPS) is a comprehensive integrated surveillance sy
 ## Future Enhancements
 - **Thermal Imaging Integration**: Incorporate thermal imaging cameras for nighttime surveillance and in dense foliage where visibility is low.
 - **Automated Response System**: Develop an automated system to deploy drones or alert nearby patrols upon intruder detection, reducing response times.
-- **Animal Deterrent*: Develop an automated system to deploy ulatrasonic sound to funcation as animal deterrents.
+- **Animal Deterrent**: Develop an automated system to deploy ulatrasonic sound to funcation as animal deterrents.
 
 ## Dependencies
 - YOLOv8
