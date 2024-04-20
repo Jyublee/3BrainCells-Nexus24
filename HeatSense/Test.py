@@ -3,6 +3,6 @@ import supervision as sv
 import os
 import glob
 
-model = YOLO("HeatSense/Heat.pt")
+model = YOLO("Heat_New.pt")
 print(model.names)
-results = model(source= 0, show = True, save=True,conf= 0.50)
+results = model(source= "Test_vid.mp4" , show = True, save=True,conf= 0.50)
