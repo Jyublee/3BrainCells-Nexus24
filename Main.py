@@ -144,7 +144,7 @@ class ObjectDetection:
         if object_id not in self.last_log_time or current_time - self.last_log_time[object_id] >= self.log_delay:
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             x1, y1, x2, y2 = [int(coord) for coord in box]
-            log_entry = f"{timestamp} - {self.model.names[cls]} detected at {side} ({x1}, {y1}, {x2}, {y2})\n"
+            log_entry = f"{timestamp} - {self.model.names[cls]} detected at __Camera__Co-ordinates__ (x:y:z))\n"
             with open("logs.txt", "a") as log_file:
                 log_file.write(log_entry)
             self.last_log_time[object_id] = current_time
