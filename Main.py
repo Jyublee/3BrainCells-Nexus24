@@ -62,11 +62,10 @@ class ObjectDetection:
         self.log_panel.grid(row=0, column=1, padx=10, pady=5, sticky="nsew")  # Place log panel in row 0, column 1
         self.log_panel.insert(tk.END, "Object Detection Logs:\n")
 
-        self.Gunpanel = tk.Text(self.root, height=30, width=80)
-        self.Gunpanel.grid(row=1, column=1, padx=10, pady=5, sticky="nsew")  # Place Gunpanel in row 1, column 1
-        self.Gunpanel.insert(tk.END, "Gunshot Detection Logs:\n")
-
-
+        # Create the Node image label
+        self.node_image = ImageTk.PhotoImage(Image.open("rsc/Node.png"))
+        self.Node = tk.Label(self.root, image=self.node_image)
+        self.Node.grid(row=1, column=1, padx=10, pady=5, sticky="nsew")
 
     def predict(self, im0):
         results = self.model(im0)
@@ -197,6 +196,7 @@ class ObjectDetection:
         object_center = (x1 + x2) // 2
         return "side A" if object_center < frame_center else "side B"
 
+    
     def feed_record(self, im0):
         if self.recording:
             # blinking red circle 
@@ -214,11 +214,25 @@ class ObjectDetection:
             text_position = (im0.shape[1] - 150, 20)  
             cv2.putText(im0, text, text_position, cv2.FONT_HERSHEY_SIMPLEX, 0.6, text_color, 2, cv2.LINE_AA)
             
+            node_img = cv2.imread("rsc/Node.png")
+            height, width, _ = node_img.shape
+            center_x, center_y = width // 2, height // 2
+            radius = 25  # Adjust the radius as needed
+            cv2.circle(node_img, (center_x+100, center_y-162), radius, (0, 0, 255), -1)  # Draw a filled red circle
+            node_img = cv2.cvtColor(node_img, cv2.COLOR_BGR2RGB)  # Convert to RGB for PIL
+            node_img = Image.fromarray(node_img)
+            self.node_image = ImageTk.PhotoImage(image=node_img)
+            self.Node.configure(image=self.node_image)
+
             # Timestamp
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             cv2.putText(im0, timestamp, (10, im0.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2, cv2.LINE_AA)
             self.video_writer.write(im0)
 
+        else:
+            self.node_image = ImageTk.PhotoImage(Image.open("rsc/Node.png"))
+            self.Node.configure(image=self.node_image)
+    
     def log_event(self, object_id, cls, side, box):
         current_time = time()
         if object_id not in self.last_log_time or current_time - self.last_log_time[object_id] >= self.log_delay:
