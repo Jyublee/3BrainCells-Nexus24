@@ -18,9 +18,13 @@ The Forest Protection System (FPS) is a comprehensive integrated surveillance sy
 - **Wildfire Detection**: Monitors forest conditions and identifies potential fire outbreaks to mitigate environmental threats.
 
 ## Dependencies
-- YOLOv8
+- Python 3.x
+- OpenCV
 - PyTorch
-- Other necessary dependencies as per the project requirements
+- NumPy
+- Ultralytics YOLO library
+- Tkinter
+- Pillow
 
 ## Installation
 1. Clone the repository:
