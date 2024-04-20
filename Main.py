@@ -8,13 +8,11 @@ from ultralytics.utils.plotting import Annotator, colors
 import os
 import tkinter as tk
 from PIL import Image, ImageTk
-import pygame
 
 class ObjectDetection:
     def __init__(self, capture_index):
         self.capture_index = capture_index
         self.model = YOLO("Model.pt")
-        self.sound = pygame.mixer.Sound("rsc\High_Pitch.wav")
         self.annotator = None
         self.start_time = 0
         self.end_time = 0
@@ -217,7 +215,7 @@ class ObjectDetection:
             text_color = (0, 0, 255) 
             text_position = (im0.shape[1] - 150, 75)  
             cv2.putText(im0, text, text_position, cv2.FONT_HERSHEY_SIMPLEX, 0.6, text_color, 2, cv2.LINE_AA)
-            self.sound.play(-1)
+            
             node_img = cv2.imread("rsc/Node.png")
             height, width, _ = node_img.shape
             center_x, center_y = width // 2, height // 2
@@ -236,8 +234,6 @@ class ObjectDetection:
         else:
             self.node_image = ImageTk.PhotoImage(Image.open("rsc/Node.png"))
             self.Node.configure(image=self.node_image)
-            self.sound.stop()
-
     
     def log_event(self, object_id, cls, side, box):
         current_time = time()
@@ -322,6 +318,5 @@ class ObjectDetection:
         cap.release()
         cv2.destroyAllWindows()
 
-pygame.mixer.init()
 detector = ObjectDetection(capture_index=0)
 detector()
