@@ -33,7 +33,7 @@ class ObjectDetection:
         self.root.title("Object Detection")
         self.panel = tk.Label(self.root)
         self.panel.pack(side="left", padx=10, pady=10)
-        self.log_panel = tk.Text(self.root, height=30, width=50)
+        self.log_panel = tk.Text(self.root, height=30, width=100)
         self.log_panel.pack(side="right", padx=10, pady=10)
         self.log_panel.insert(tk.END, "Log:\n")
 
