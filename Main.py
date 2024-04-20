@@ -43,30 +43,32 @@ class ObjectDetection:
         self.video_cap = cv2.VideoCapture(self.video_path)
         self.video_width = int(self.video_cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.video_height = int(self.video_cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        self.video_panel = tk.Label(self.root)
+        self.video_panel = tk.Label(self.root, highlightbackground="black", highlightthickness=11)  # Add black border
         self.video_panel.grid(row=1, column=0, padx=10, pady=5, sticky="nsew")  # Place video panel in row 1, column 0
 
         # Camera 1 frame
-        self.camera1_frame = tk.LabelFrame(self.root, text="Camera - 1 (Normal Camera)")
+        self.camera1_frame = tk.LabelFrame(self.root, text="Camera - 1 (Normal Camera)", highlightbackground="black", highlightthickness=11)  # Add black border
         self.camera1_frame.grid(row=0, column=0, padx=10, pady=5, sticky="nsew")
         self.panel = tk.Label(self.camera1_frame)
         self.panel.pack(padx=10, pady=5)
 
         # Camera 2 frame
-        self.camera2_frame = tk.LabelFrame(self.root, text="Camera - 2 (Thermal Camera)")
+        self.camera2_frame = tk.LabelFrame(self.root, text="Camera - 2 (Thermal Camera)", highlightbackground="black", highlightthickness=11)  # Add black border
         self.camera2_frame.grid(row=1, column=1, padx=10, pady=5, sticky="nsew")
         self.thermal_panel = tk.Label(self.camera2_frame)  # Add a label to the camera2_frame
         self.thermal_panel.pack(padx=10, pady=5)
 
-        self.log_panel = tk.Text(self.root, height=30, width=80)
+        self.log_panel = tk.Text(self.root, height=30, width=80, highlightbackground="black", highlightthickness=11)  # Add black border
         self.log_panel.grid(row=0, column=1, padx=10, pady=5, sticky="nsew")  # Place log panel in row 0, column 1
         self.log_panel.insert(tk.END, "Object Detection Logs:\n")
 
         # Create the Node image label
+        self.map_frame = tk.LabelFrame(self.root, text="Forest Map", highlightbackground="black", highlightthickness=11)  # Add black border
+        self.map_frame.grid(row=1, column=1, padx=10, pady=5, sticky="nsew")
         self.node_image = ImageTk.PhotoImage(Image.open("rsc/Node.png"))
-        self.Node = tk.Label(self.root, image=self.node_image)
-        self.Node.grid(row=1, column=1, padx=10, pady=5, sticky="nsew")
-
+        self.Node = tk.Label(self.map_frame, image=self.node_image)
+        self.Node.pack(padx=10, pady=5)
+        
     def predict(self, im0):
         results = self.model(im0)
         return results
