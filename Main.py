@@ -44,17 +44,26 @@ class ObjectDetection:
         self.video_width = int(self.video_cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.video_height = int(self.video_cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         self.video_panel = tk.Label(self.root)
-        self.video_panel.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")  # Place video panel in row 0, column 0
+        self.video_panel.grid(row=1, column=0, padx=10, pady=5, sticky="nsew")  # Place video panel in row 1, column 0
 
-        self.panel = tk.Label(self.root)
-        self.panel.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")  # Place panel in row 0, column 1
+        # Camera 1 frame
+        self.camera1_frame = tk.LabelFrame(self.root, text="Camera - 1 (Normal Camera)")
+        self.camera1_frame.grid(row=0, column=0, padx=10, pady=5, sticky="nsew")
+        self.panel = tk.Label(self.camera1_frame)
+        self.panel.pack(padx=10, pady=5)
+
+        # Camera 2 frame
+        self.camera2_frame = tk.LabelFrame(self.root, text="Camera - 2 (Thermal Camera)")
+        self.camera2_frame.grid(row=1, column=1, padx=10, pady=5, sticky="nsew")
+        self.thermal_panel = tk.Label(self.camera2_frame)  # Add a label to the camera2_frame
+        self.thermal_panel.pack(padx=10, pady=5)
 
         self.log_panel = tk.Text(self.root, height=30, width=80)
-        self.log_panel.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")  # Place log panel in row 1, column 0
+        self.log_panel.grid(row=0, column=1, padx=10, pady=5, sticky="nsew")  # Place log panel in row 0, column 1
         self.log_panel.insert(tk.END, "Object Detection Logs:\n")
 
         self.Gunpanel = tk.Text(self.root, height=30, width=80)
-        self.Gunpanel.grid(row=1, column=1, padx=10, pady=10, sticky="nsew")  # Place Gunpanel in row 1, column 1
+        self.Gunpanel.grid(row=1, column=1, padx=10, pady=5, sticky="nsew")  # Place Gunpanel in row 1, column 1
         self.Gunpanel.insert(tk.END, "Gunshot Detection Logs:\n")
 
 
@@ -177,7 +186,7 @@ class ObjectDetection:
         if object_id not in self.last_log_time or current_time - self.last_log_time[object_id] >= self.log_delay:
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             x1, y1, x2, y2 = [int(coord) for coord in box]
-            log_entry = f"{timestamp} - {self.model.names[cls]} detected at Video_Cam 01 !!\n"
+            log_entry = f"{timestamp} - {self.model.names[cls]} detected at Video_Cam 01 !\n"
             with open("logs.txt", "a") as log_file:
                 log_file.write(log_entry)
             self.last_log_time[object_id] = current_time
@@ -215,7 +224,7 @@ class ObjectDetection:
         if object_id not in self.last_log_time or current_time - self.last_log_time[object_id] >= self.log_delay:
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             x1, y1, x2, y2 = [int(coord) for coord in box]
-            log_entry = f"{timestamp} - {self.model.names[cls]} detected at __Camera__Co-ordinates__ (x:y:z)\n"
+            log_entry = f"{timestamp} - {self.model.names[cls]} detected at Video_Cam 01!\n"
             with open("logs.txt", "a") as log_file:
                 log_file.write(log_entry)
             self.last_log_time[object_id] = current_time

@@ -313,3 +313,79 @@
 2024-04-20 23:11:48 - person detected at __Camera__Co-ordinates__ (x:y:z)
 2024-04-20 23:11:52 - person detected at __Camera__Co-ordinates__ (x:y:z)
 2024-04-20 23:11:53 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:23:42 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:23:42 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:23:46 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:23:47 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:23:51 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:23:52 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:23:56 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:23:57 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:24:01 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:24:02 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:25:55 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:25:55 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:25:58 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:26:00 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:26:00 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:26:03 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:26:05 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:26:05 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:26:10 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:26:10 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:26:11 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:26:11 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:08 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:08 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:13 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:13 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:17 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:18 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:18 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:20 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:24 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:26 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:49 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:49 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:55 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:28:55 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:29:49 - person detected at Video_Cam 01 !!
+2024-04-20 23:29:50 - person detected at Video_Cam 01 !!
+2024-04-20 23:29:51 - person detected at Video_Cam 01 !!
+2024-04-20 23:29:52 - person detected at Video_Cam 01 !!
+2024-04-20 23:29:54 - person detected at Video_Cam 01 !!
+2024-04-20 23:29:59 - person detected at Video_Cam 01 !!
+2024-04-20 23:30:48 - person detected at Video_Cam 01 !!
+2024-04-20 23:30:48 - person detected at Video_Cam 01 !!
+2024-04-20 23:30:49 - person detected at Video_Cam 01 !!
+2024-04-20 23:30:53 - person detected at Video_Cam 01 !!
+2024-04-20 23:30:53 - person detected at Video_Cam 01 !!
+2024-04-20 23:30:56 - person detected at Video_Cam 01 !!
+2024-04-20 23:30:59 - person detected at Video_Cam 01 !!
+2024-04-20 23:31:04 - person detected at Video_Cam 01 !!
+2024-04-20 23:31:09 - person detected at Video_Cam 01 !!
+2024-04-20 23:31:09 - person detected at Video_Cam 01 !!
+2024-04-20 23:31:10 - person detected at Video_Cam 01 !!
+2024-04-20 23:31:14 - person detected at Video_Cam 01 !!
+2024-04-20 23:31:15 - person detected at Video_Cam 01 !!
+2024-04-20 23:32:54 - person detected at Video_Cam 01 !!
+2024-04-20 23:32:55 - person detected at Video_Cam 01 !!
+2024-04-20 23:32:59 - person detected at Video_Cam 01 !!
+2024-04-20 23:33:00 - person detected at Video_Cam 01 !!
+2024-04-20 23:33:04 - person detected at Video_Cam 01 !!
+2024-04-20 23:33:05 - person detected at Video_Cam 01 !!
+2024-04-20 23:33:07 - person detected at Video_Cam 01 !!
+2024-04-20 23:33:33 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:33:33 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:33:38 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:33:38 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:33:38 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:33:39 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:33:43 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:33:44 - person detected at __Camera__Co-ordinates__ (x:y:z)
+2024-04-20 23:34:27 - person detected at Video_Cam 01!)
+2024-04-20 23:34:27 - person detected at Video_Cam 01!)
+2024-04-20 23:34:32 - person detected at Video_Cam 01!)
+2024-04-20 23:34:32 - person detected at Video_Cam 01!)
+2024-04-20 23:34:38 - person detected at Video_Cam 01!)
+2024-04-20 23:34:38 - person detected at Video_Cam 01!)
