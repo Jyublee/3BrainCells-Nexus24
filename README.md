@@ -23,7 +23,7 @@ The Forest Protection System (FPS) is a comprehensive integrated surveillance sy
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your_username/fps.git
+   git clone https://github.com/Jyublee/3BrainCells-Nexus24
 
 ## License
 This project is licensed under the MIT License.
