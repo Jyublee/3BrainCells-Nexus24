@@ -6,6 +6,8 @@ from datetime import datetime
 from ultralytics import YOLO
 from ultralytics.utils.plotting import Annotator, colors
 import os
+import tkinter as tk
+from PIL import Image, ImageTk
 
 class ObjectDetection:
     def __init__(self, capture_index):
@@ -25,6 +27,15 @@ class ObjectDetection:
         self.recording_stop_delay = 5.0
         self.iou_threshold = 0.5  # IOU threshold for NMS
         self.classes = [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0]  # Updated classes
+
+        # Tkinter setup
+        self.root = tk.Tk()
+        self.root.title("Object Detection")
+        self.panel = tk.Label(self.root)
+        self.panel.pack(side="left", padx=10, pady=10)
+        self.log_panel = tk.Text(self.root, height=30, width=50)
+        self.log_panel.pack(side="right", padx=10, pady=10)
+        self.log_panel.insert(tk.END, "Log:\n")
 
     def predict(self, im0):
         results = self.model(im0)
@@ -177,12 +188,23 @@ class ObjectDetection:
             cv2.putText(im0, timestamp, (10, im0.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2, cv2.LINE_AA)
             self.video_writer.write(im0)
 
+    def log_event(self, object_id, cls, side, box):
+        current_time = time()
+        if object_id not in self.last_log_time or current_time - self.last_log_time[object_id] >= self.log_delay:
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            x1, y1, x2, y2 = [int(coord) for coord in box]
+            log_entry = f"{timestamp} - {self.model.names[cls]} detected at __Camera__Co-ordinates__ (x:y:z)\n"
+            with open("logs.txt", "a") as log_file:
+                log_file.write(log_entry)
+            self.last_log_time[object_id] = current_time
+            self.log_panel.insert(tk.END, log_entry)  # Update log panel
+
     def __call__(self):
         cap = cv2.VideoCapture(self.capture_index)
         assert cap.isOpened()
         self.frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        
+
         while True:
             # Check if the current time is within the specified time frame
             current_time = datetime.now().time()
@@ -195,7 +217,7 @@ class ObjectDetection:
                 assert ret
                 results = self.predict(im0)
                 im0, class_ids = self.plot_bboxes(results, im0)
-                
+
                 object_detected = False
                 for box, cls in zip(results[0].boxes.xyxy.cpu(), results[0].boxes.cls.cpu().tolist()):
                     if cls in self.classes:
@@ -216,17 +238,25 @@ class ObjectDetection:
 
                 self.feed_record(im0)
                 self.display_fps(im0)
-                cv2.imshow('YOLOv8 Detection', im0)
-            
+                self.show_frame(im0)  # Display frame in Tkinter window
+                self.root.update()  # Update Tkinter window
+
             else:
                 print(" Current Time Frame does not match target time frame \n")
                 break
 
             if cv2.waitKey(5) & 0xFF == 27:
                 break
-            
+
         cap.release()
         cv2.destroyAllWindows()
+
+    def show_frame(self, frame):
+        cv2_img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        img = Image.fromarray(cv2_img)
+        imgtk = ImageTk.PhotoImage(image=img)
+        self.panel.imgtk = imgtk
+        self.panel.configure(image=imgtk)
 
 detector = ObjectDetection(capture_index=0)
 detector()
