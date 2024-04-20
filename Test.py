@@ -26,7 +26,7 @@ class ObjectDetection:
         self.last_object_detection_time = 0
         self.recording_stop_delay = 5.0
         self.iou_threshold = 0.5  # IOU threshold for NMS
-        self.classes = [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0]  # Updated classes
+        self.classes = [14, 15, 16, 17, 18, 20, 21, 22, 23, 0]  # Updated classes
 
         # Tkinter setup
         self.root = tk.Tk()
@@ -68,7 +68,7 @@ class ObjectDetection:
         self.Node.grid(row=1, column=1, padx=10, pady=5, sticky="nsew")
 
     def predict(self, im0):
-        results = self.model(im0)
+        results = self.model(im0, conf= 0.70)
         return results
     
     def non_max_suppression(self, boxes, scores, iou_threshold):
@@ -263,7 +263,7 @@ class ObjectDetection:
         self.root.after(int(1), self.show_video) 
 
     def __call__(self):
-        cap = cv2.VideoCapture(self.capture_index)
+        cap = cv2.VideoCapture("rsc\Input.mp4")
         assert cap.isOpened()
         self.frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
